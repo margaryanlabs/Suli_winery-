@@ -1,27 +1,9 @@
 # SULI Winery
 
-Premium trilingual website concept for SULI — a limited Georgian wine and chacha house.
+Luxury Georgian wine and chacha digital experience.
 
-## Stack
-- Next.js 15
-- React 19
-- TypeScript
-- Custom responsive CSS / SVG-like CSS product art
-- EN / RU / KA language switching
-- Age gate with local confirmation
-- Allocation request prototype
+## Current production home
 
-## Run locally
-```bash
-npm install
-npm run dev
-```
+The homepage uses `SuliMasterLive`, with four real SULI bottle photographs (gold, silver, copper, obsidian), reactive hero themes, RU / EN / KA localization, collection, story and order sections.
 
-## Production build
-```bash
-npm run build
-npm start
-```
-
-## Product direction
-Edition 001 is presented as a 777-bottle numbered release, with provenance/NFC storytelling and a cinematic luxury visual system.
+Bottle assets are also stored under `public/` for stable production delivery.
