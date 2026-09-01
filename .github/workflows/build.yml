@@ -7,10 +7,10 @@ on:
     branches: [main]
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
-  build:
+  root-build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -19,17 +19,25 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: Install dependencies
+          cache: npm
+      - name: Install root dependencies
+        run: npm ci --no-audit --no-fund
+      - name: Build root Next.js
+        run: npm run build
+
+  app-root-build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: app
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install app-root dependencies
         run: npm install --no-audit --no-fund
-      - name: Persist npm lockfile
-        if: github.event_name == 'push'
-        run: |
-          if [ -n "$(git status --porcelain package-lock.json)" ]; then
-            git config user.name "github-actions[bot]"
-            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add package-lock.json
-            git commit -m "chore: add npm lockfile [skip ci]"
-            git push
-          fi
-      - name: Build Next.js
+      - name: Build app-root Next.js
         run: npm run build
