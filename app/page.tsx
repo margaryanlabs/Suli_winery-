@@ -1,5 +1,5 @@
-import SuliMaster from "../components/SuliMaster";
+import SuliMasterLive from "../components/SuliMasterLive";
 
 export default function HomePage() {
-  return <SuliMaster />;
+  return <SuliMasterLive />;
 }
