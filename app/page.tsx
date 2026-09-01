@@ -1,5 +1,5 @@
-import SuliV5 from "../components/SuliV5";
+import SuliV6 from "../components/SuliV6";
 
 export default function HomePage() {
-  return <SuliV5 />;
+  return <SuliV6 />;
 }
