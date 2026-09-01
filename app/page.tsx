@@ -1,11 +1,5 @@
-import CinematicLayer from "../components/CinematicLayer";
-import SuliExperience from "../components/SuliExperience";
+import SuliV3 from "../components/SuliV3";
 
 export default function HomePage() {
-  return (
-    <>
-      <CinematicLayer />
-      <SuliExperience />
-    </>
-  );
+  return <SuliV3 />;
 }
